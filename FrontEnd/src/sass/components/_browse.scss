@@ -1,0 +1,145 @@
+.browse {
+    background:$bg-primary-color;
+    padding-bottom: 3rem;
+    @include ContentCenter($direction:column);
+    @include respond(phone){
+        display:none;
+    }
+    &__titles {
+        width: 100%;
+        @include ContentCenter();
+        transform:translateY(-99%);
+        .title {
+            padding: 0.2rem 0.5rem;
+
+            @include ContentCenter();
+            @include Text(1rem,$title-color,400);
+
+            transition: 0.5s;
+            cursor: pointer;
+            &.active {
+                background: $bg-primary-color;
+                color: $text-color;
+                border-top-left-radius: 5px;
+                border-top-right-radius: 5px;
+            }
+        }
+    }
+    &__content{
+        @include ContentCenter($align:flex-start);
+        &--left{  
+            width:40%;  
+            margin-right: 1rem;    
+            .title{
+                background:$bg-secondary-color;
+                padding:0.5rem;
+                @include Text(0.9rem,$text-color,$align:end);
+            }
+            .items{               
+                .item{
+                    background: $bg-secondary-color; 
+                    width:100%;
+                    height:inherit;
+                    @include ContentCenter($justify:space-between);
+                    &:not(:last-child){
+                        margin-bottom:0.5rem;
+                    }
+                    img{
+                        width:35%;
+                        height:100%;
+                    }
+                    .info{
+                        width:30%; 
+                        overflow: hidden;
+                        &__title{
+                            color:$text-color;
+                            white-space: nowrap; 
+                            transition:0.3s;
+                        }
+                        &__category{
+                            @include Text(0.8rem);
+                            white-space: nowrap; 
+                            opacity:0.4;
+                        }
+                    }
+                    .sale-off{                     
+                        background:$sale-off-color;
+                        padding:0 0.2rem;
+                        border-radius:2px;
+
+                        @include Text(0.9rem,$sale-off-text-color);
+                        white-space: nowrap;
+                        cursor: pointer;
+                    }
+                    .price{
+                        width:20%;
+                        overflow: hidden;
+                        &--before{
+                            @include Text(0.7rem,$bg-tertiary-color,$decoration: line-through);  
+                            opacity:0.9;       
+                        }
+                        &--after{
+                            @include Text(0.9rem,$bg-tertiary-color,$weight:600);
+                        }
+                    }
+                }
+                .item.active{
+                    background: $bg-tertiary-color;
+                    // margin-right: -1rem;
+                    // padding-right: 1rem;
+                    .price{
+                        &--before,&--after{
+                            color:$browser-text-color;
+                        }
+                    }
+                }
+                &:hover{
+                    cursor: pointer;
+                }
+            }
+        }
+        &--right{ 
+            width:30%;
+            background: $bg-tertiary-color;
+            padding:1rem;
+            .preview{
+                .item{
+                    display:none;
+                    .images{
+                        img{
+                            max-width:100%;
+                        }
+                    }
+                    .info{
+                        margin-bottom: 0.5rem;
+                        &__title{
+                            @include Text(1.2rem,$browser-text-color,600,$align:start);
+                        }
+                        &__category{
+                            background: $bg-primary-color;
+                            padding:0.5rem;
+                            border-radius: 3px;
+                            @include Text(0.8rem,$align:start);
+                            opacity:0.4;
+                        }
+                    }
+                    .images{
+                        img{
+                            margin-top: 0.3rem;
+                        }
+                    }
+                }
+                .item.active{
+                    display:flex;
+                    flex-direction: column;
+                }
+            }
+        }
+        p{
+            margin:0;
+        }
+    }
+}
+
+
+

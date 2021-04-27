@@ -1,0 +1,71 @@
+$icon-color:(
+    1:$facebook-color,
+    2:$instagram-color,
+    3:$youtube-color,
+    4:$viber-color
+);
+
+.footer{
+    width:100%;
+    background:$footer-bg-color;
+    padding:2rem 4rem;
+    @include respond(phone){
+        padding:0.5rem 1rem;
+    }
+    &__contact{
+        width:100%;
+        margin-bottom: 1rem;
+        @include respond(phone){
+            text-align: center;
+        }
+        a{         
+            opacity: 0.7; 
+            img{
+                width:1.5rem;
+                @include respond(phone){
+                    width:1rem;
+                }
+            }  
+            &:not(:first-child){
+                margin-left: 0.5rem;
+            }
+            &:hover{
+                opacity:1;              
+            }
+            @include respond(phone){
+                opacity:1;
+            }
+            @each $key,$value in $icon-color{
+                &:nth-child(#{$key}):hover{
+                    filter:drop-shadow(0 0 5px $value);
+                }
+            }           
+        }          
+    }
+    &__content{
+        display:flex;
+        @include respond(phone){
+            flex-direction: column;
+            align-items: center;
+        }
+        img{
+            height:30px;
+            margin:auto;
+            @include respond(phone){
+                height:5vw;
+            }
+        }
+        div{
+            color:$text-color;
+            font-size:1rem;
+            font-weight: 400;
+            padding:0 2rem;
+            opacity: 0.8;
+            @include respond(phone){
+                font-size:3vw;
+                padding:0.5rem 0;
+            }
+        }
+    }
+}
+

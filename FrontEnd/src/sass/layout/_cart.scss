@@ -1,0 +1,12 @@
+.cart {
+    min-height: 70vh;
+    background-image: linear-gradient(to left,
+            rgba($bg-secondary-color, 0.5),
+            rgba($bg-tertiary-color, 0.3)),
+        url('https://store.cloudflare.steamstatic.com/public/shared/images/joinsteam/acct_creation_bg.jpg');
+    padding-top: 2rem;
+
+
+    display: flex;
+    justify-content: center;
+}

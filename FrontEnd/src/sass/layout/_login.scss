@@ -1,0 +1,25 @@
+.login {
+    min-height: 70vh;
+
+    display: flex;
+    justify-content: center;
+    background-image: linear-gradient(to left,
+            rgba($bg-secondary-color, 0.5),
+            rgba($bg-tertiary-color, 0.3)),
+        url('https://store.cloudflare.steamstatic.com/public/shared/images/joinsteam/acct_creation_bg.jpg');
+
+    @include respond(phone) {
+        padding-top: 5rem;
+    }
+
+    .form-input {
+        .text {
+            display: block;
+            @include Text(1rem, $gutter-text-color);
+
+            &:hover {
+                opacity: 0.8;
+            }
+        }
+    }
+}

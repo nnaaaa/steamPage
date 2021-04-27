@@ -1,0 +1,94 @@
+.search {
+    width:100%;
+    background: $search-bg-color;
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.7);
+    animation:rightToLeft 0.4s ease-in-out;
+    @include ContentCenter($justify:space-between);
+    @include respond(phone){
+        flex-direction: column;
+    }
+
+    &__category {
+        display: flex;
+        @include respond(phone){
+            width: 100%;
+            flex-direction: column;
+        }
+    }
+
+    &__title {      
+        padding: 0.5rem 0.5rem;
+        border-right: 1px solid $search-border-color;
+
+        @include ContentCenter();
+        @include Text(0.8rem,$text-color,400);
+        
+        opacity: 0.8;
+        transition: 0.5s;
+
+        &:hover {
+            background: $text-color;
+            text-decoration:none;
+            color:black;
+        }
+        @include respond(phone){
+            justify-content: flex-start;
+            border: none;
+        }
+    }
+
+    &__tool{
+        @include respond(phone){
+            width:100%;
+        }
+    }
+
+    &__form {
+        width: 100%;
+        height: 100%;
+        padding: 0.1rem;
+
+        position: relative;
+    }
+
+    &__input {
+        width: 100%;
+        height: 100%;
+        background: $search-input-color;
+        padding: 0.2rem 2rem 0.2rem 1rem;
+        border: 1px solid $search-input-border-color;
+        
+        outline: none;
+        transition: 0.5s;
+        &:hover {
+            border-color:$search-input-border-hover-color ;
+        }
+    }
+
+    &__icon {
+        height: 100%;
+
+        @include ContentCenter();
+
+        position: absolute;
+        right: 0.3rem;
+        top: 0;
+
+        img{
+            height:70%;
+            background: $search-bg-color;
+            border-radius:2px;
+            padding:0.1rem;
+            box-shadow: inset 0 0 3px rgb(117, 117, 117);
+
+            transition:background 0.3s;
+            cursor: pointer;
+            &:hover{
+                background: $bg-tertiary-color;
+            }
+            &:active{
+                transform: translate(1px, 1px);
+            }
+        }     
+    }
+}

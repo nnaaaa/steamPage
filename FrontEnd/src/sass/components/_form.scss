@@ -1,0 +1,64 @@
+.form-input {
+    height: max-content;
+    padding: 3rem 2rem 2rem;
+    
+    &__title {
+        margin-bottom: 1rem;
+
+        @include Text(2.5rem, $text-color, 300) {
+            text-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+        }
+    }
+
+    .item {
+        margin-bottom: 1rem;
+        display: flex;
+        flex-direction: column;
+        label {
+            margin:0;
+
+            color: $text-color;
+            font-size: 1rem;
+            text-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+
+            cursor: pointer;
+            opacity: 0.7;
+        }
+
+        input {
+            padding: 0.3rem 0.5rem;
+            background: $input-bg-color;
+            border: 1px solid $bg-secondary-color;
+
+            color: $text-color;
+
+            transition:0.4s;
+            outline: 0;
+            &[type="date"]{
+                opacity: 0.7;
+            }
+            &:hover,&:focus{
+                border:1px solid $bg-tertiary-color;
+            }
+        }
+        select{
+            padding: 0.3rem 0.3rem;
+            background: $input-bg-color;
+            border: 1px solid $bg-secondary-color;
+            border-radius:2px;
+            overflow-y:scroll;
+            color: $text-color;
+
+            outline: 0;
+            &:invalid {
+                opacity:0.7;
+            }
+        }
+    }
+
+    .btn-submit {
+        margin: 0.5rem auto;
+    }
+}

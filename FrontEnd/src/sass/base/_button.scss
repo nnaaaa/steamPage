@@ -1,0 +1,53 @@
+.btn-custom {
+    padding:0.3rem 0.8rem;
+    border-radius: 3px;
+
+    outline: none;
+    border: none;
+    cursor: pointer;
+
+    @include ContentCenter();
+
+    font-size: 1rem;
+    font-family: 'Motiva Sans', sans-serif;
+
+    transition: background-color 0.6s, opacity 0.1s;
+    &:hover{
+        transform: translate(1px,-1px);
+    }
+    &:active{
+        transform: translate(0px, 0px);
+    }
+}
+
+
+.custom-1 {
+    border: 1px solid white;
+    background: $bg-secondary-color;
+    color: white;
+
+    position: relative;
+    z-index: 1;
+
+    transition: color 0.6s;
+    opacity:0.8;
+    &:hover{
+        opacity:.95;
+        &::after{
+            width: 100%;
+        }
+    }
+    &::after {
+        content: "";
+        width: 0;
+        height: 100%;
+        background: rgba($bg-tertiary-color,0.4);
+    
+        position: absolute;
+        z-index: -1;
+        top: 0;
+        left: 0;
+    
+        transition:0.6s;
+    }
+}

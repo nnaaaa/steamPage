@@ -1,0 +1,46 @@
+.content {
+  overflow: hidden;
+  background-image: linear-gradient(to left,
+            rgba($bg-secondary-color, 0.5),
+            rgba($bg-tertiary-color, 0.6)),
+        url("background.jpg");
+  background-repeat: no-repeat;
+  background-position: center 0;
+
+  &__store {
+    width: 100%;
+    padding: 3rem 5rem 6rem 5rem;
+
+    @include ContentCenter($align:flex-start);
+
+    &--left {
+      width: 20%;
+
+      @include respond(tablet) {
+        display: none;
+      }
+    }
+
+    &--right {
+      width: 80%;
+      @include ContentCenter($direction:column);
+
+      @include respond(phone) {
+        width: 100%;
+        margin-top: 5rem;
+        align-items: center;
+      }
+    }
+
+    @include respond(tablet) {
+      padding: 0;
+      padding-top: 4rem;
+      padding-bottom: 4rem;
+    }
+
+    @include respond(phone) {
+      padding: 0;
+      padding-bottom: 4rem;
+    }
+  }
+}
