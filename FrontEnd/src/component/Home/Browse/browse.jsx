@@ -21,8 +21,8 @@ export default function Browse() {
       <div className='info'>
         <p className='info__name'>{info.name}</p>
         <p className='info__category'>
-          {info.categories.map(category =>
-            <span>{category},</span>
+          {info.categories.map((category,index,arr) =>
+            <span>{category==""||index==arr.length-1 ?  `` : `${category},` }</span>
           )}
         </p>
       </div>
