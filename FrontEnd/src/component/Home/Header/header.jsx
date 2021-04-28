@@ -1,11 +1,11 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect,useContext } from 'react';
 
 import menu from './menu.svg';
-
+import { DataConsumer } from '../../../data/data'
 export default function Header() {
     const [isOpen, setIsOpen] = useState(false);
-
+    const { isLogin }= useContext(DataConsumer)
     const removeToggle = (e) => {
         if (e.pageX <= 200)
             return
@@ -44,12 +44,14 @@ export default function Header() {
                 <a href='' className='items'> About</a>
                 <a href='' className='items'> Support</a>
             </div>
-
-            <login>
-                <a href='/user/login' className='sign-in sign'>Sign in</a>
-                <div className='separator'>|</div>
-                <a href='/user/register' className='sign-up sign'>Sign up</a>
-            </login>
+            
+            {isLogin ? ``:
+                <section>
+                    <a href='/user/login' className='sign-in sign'>Sign in</a>
+                    <div className='separator'>|</div>
+                    <a href='/user/register' className='sign-up sign'>Sign up</a>
+                </section>
+            }
         </nav>
     )
 }

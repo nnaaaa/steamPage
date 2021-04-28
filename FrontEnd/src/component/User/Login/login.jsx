@@ -1,15 +1,19 @@
 import axios from 'axios'
-import { useState } from 'react'
+import { useState,useEffect, createContext} from 'react'
 
 export default function Login() {
-    const [data,setData]= useState();
-
+    const [data, setData] = useState();
+    const [login,setLogin]=useState();
     function Login(){
-        axios.get('')
+        axios.get('/user/login',{params})
         .then(res=>res.data)
         .then(res=>setData(res))
     }
     
+    useEffect(() => {
+        
+    })
+
     return (
         <section className='login'>
             <form action='' className='form-input'>

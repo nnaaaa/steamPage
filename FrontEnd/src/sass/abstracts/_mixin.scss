@@ -12,7 +12,6 @@
     $weight:400,
     $family:'Motiva Sans' sans-serif,
     $align:center,
-    $justify:center,
     $decoration:none
 ){
     font-size: $size;
@@ -20,7 +19,6 @@
     font-weight:$weight;
     font-family: $family;
     text-align:$align ;
-    text-justify:$justify;
     text-decoration:$decoration;
     @content;
 }

@@ -18,7 +18,6 @@ export default function App() {
           <Route exact path='/'>
             <Home/>
           </Route>   
-
           <Route path='/community'></Route>
           <Route path='/about'></Route>
           <Route path='/support'></Route>  

@@ -4,8 +4,10 @@
             rgba($bg-secondary-color, 0.5),
             rgba($bg-tertiary-color, 0.3)),
         url('https://store.cloudflare.steamstatic.com/public/shared/images/joinsteam/acct_creation_bg.jpg');
-    padding-top: 2rem;
-
+    padding:2rem 0;
+    @include respond(phone){
+        padding-top: 7rem;
+    }
 
     display: flex;
     justify-content: center;

@@ -25,21 +25,18 @@ body {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.6); }
 
 p {
-  margin: 0; }
+  margin: 0 !important; }
 
 table {
-  background: rgba(149, 188, 211, 0.5);
-  border-radius: 0.5rem; }
-  table thead {
+  background: rgba(149, 188, 211, 0.5); }
+  table thead td {
     background: rgba(23, 61, 87, 0.5);
     padding: 1rem;
-    margin-bottom: 1rem;
-    font-size: 1.1rem;
-    color: #95bcd3;
+    font-size: 1.3rem;
+    color: #fff;
     font-weight: 500;
     font-family: "Motiva Sans" sans-serif;
     text-align: center;
-    text-justify: center;
     text-decoration: none; }
   table tr {
     padding: 0.5rem;
@@ -48,10 +45,15 @@ table {
     font-weight: 400;
     font-family: "Motiva Sans" sans-serif;
     text-align: start;
-    text-justify: center;
     text-decoration: none; }
   table td {
-    padding: 0.5rem; }
+    padding: 0.5rem;
+    font-size: 1rem;
+    color: #414141;
+    font-weight: 400;
+    font-family: "Motiva Sans" sans-serif;
+    text-align: center;
+    text-decoration: none; }
 
 .btn-custom {
   padding: 0.3rem 0.8rem;
@@ -94,6 +96,55 @@ table {
     left: 0;
     transition: 0.6s; }
 
+.info {
+  width: 30%;
+  overflow: hidden; }
+  .info__name {
+    color: #fff;
+    white-space: nowrap;
+    transition: 0.3s; }
+  .info__category {
+    font-size: 0.8rem;
+    color: white;
+    font-weight: 400;
+    font-family: "Motiva Sans" sans-serif;
+    text-align: center;
+    text-decoration: none;
+    white-space: nowrap;
+    opacity: 0.4; }
+
+.sale-off {
+  background: #4c6b22;
+  padding: 0 0.1rem;
+  border-radius: 2px;
+  font-size: 0.9rem;
+  color: #a4bd1c;
+  font-weight: 400;
+  font-family: "Motiva Sans" sans-serif;
+  text-align: center;
+  text-decoration: none;
+  white-space: nowrap;
+  cursor: pointer; }
+
+.price {
+  width: 20%;
+  overflow: hidden; }
+  .price--before {
+    font-size: 0.7rem;
+    color: #95bcd3;
+    font-weight: 400;
+    font-family: "Motiva Sans" sans-serif;
+    text-align: center;
+    text-decoration: line-through;
+    opacity: 0.9; }
+  .price--after {
+    font-size: 0.9rem;
+    color: #95bcd3;
+    font-weight: 600;
+    font-family: "Motiva Sans" sans-serif;
+    text-align: center;
+    text-decoration: none; }
+
 .form-input {
   height: max-content;
   padding: 3rem 2rem 2rem; }
@@ -104,7 +155,6 @@ table {
     font-weight: 300;
     font-family: "Motiva Sans" sans-serif;
     text-align: center;
-    text-justify: center;
     text-decoration: none;
     text-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
     text-transform: uppercase;
@@ -173,7 +223,6 @@ table {
     font-weight: 400;
     font-family: "Motiva Sans" sans-serif;
     text-align: center;
-    text-justify: center;
     text-decoration: none;
     position: absolute;
     left: 1rem;
@@ -213,7 +262,6 @@ table {
       font-weight: 400;
       font-family: "Motiva Sans" sans-serif;
       text-align: center;
-      text-justify: center;
       text-decoration: none;
       transition: 0.4s ease-in-out;
       opacity: 0.6; }
@@ -223,34 +271,32 @@ table {
         .header__navbar .items {
           width: 100%;
           padding: 1rem 0.5rem; } }
-  .header login {
+  .header section {
     display: flex;
     position: absolute;
     right: 2rem;
     top: 1rem; }
-    .header login .sign {
+    .header section .sign {
       font-size: 0.8rem;
       color: #fff;
       font-weight: 400;
       font-family: "Motiva Sans" sans-serif;
       text-align: center;
-      text-justify: center;
       text-decoration: none;
       opacity: 0.7; }
-      .header login .sign:hover {
+      .header section .sign:hover {
         opacity: 1; }
-    .header login .separator {
+    .header section .separator {
       margin: 0 0.5rem;
       font-size: 0.8rem;
       color: #fff;
       font-weight: 400;
       font-family: "Motiva Sans" sans-serif;
       text-align: center;
-      text-justify: center;
       text-decoration: none;
       opacity: 0.7; }
     @media (max-width: 1200px) {
-      .header login {
+      .header section {
         display: none; } }
 
 .search {
@@ -283,7 +329,6 @@ table {
     font-weight: 400;
     font-family: "Motiva Sans" sans-serif;
     text-align: center;
-    text-justify: center;
     text-decoration: none;
     opacity: 0.8;
     transition: 0.5s; }
@@ -351,7 +396,6 @@ table {
       font-weight: 600;
       font-family: "Motiva Sans" sans-serif;
       text-align: left;
-      text-justify: center;
       text-decoration: none;
       text-transform: uppercase;
       opacity: 0.6; }
@@ -361,7 +405,6 @@ table {
       font-weight: 400;
       font-family: "Motiva Sans" sans-serif;
       text-align: center;
-      text-justify: center;
       text-decoration: none;
       transition: 0.5s; }
       .gutter__block__items .item:hover {
@@ -385,7 +428,6 @@ table {
     font-weight: 400;
     font-family: "Motiva Sans" sans-serif;
     text-align: center;
-    text-justify: center;
     text-decoration: none;
     text-transform: uppercase; }
   .carousel__inner {
@@ -482,7 +524,6 @@ table {
       font-weight: 400;
       font-family: "Motiva Sans" sans-serif;
       text-align: center;
-      text-justify: center;
       text-decoration: none;
       transition: 0.5s;
       cursor: pointer; }
@@ -507,7 +548,6 @@ table {
         font-weight: 400;
         font-family: "Motiva Sans" sans-serif;
         text-align: end;
-        text-justify: center;
         text-decoration: none; }
       .browse__content--left .items .item {
         background: #1b2838;
@@ -525,7 +565,7 @@ table {
         .browse__content--left .items .item .info {
           width: 30%;
           overflow: hidden; }
-          .browse__content--left .items .item .info__title {
+          .browse__content--left .items .item .info__name {
             color: #fff;
             white-space: nowrap;
             transition: 0.3s; }
@@ -535,7 +575,6 @@ table {
             font-weight: 400;
             font-family: "Motiva Sans" sans-serif;
             text-align: center;
-            text-justify: center;
             text-decoration: none;
             white-space: nowrap;
             opacity: 0.4; }
@@ -548,7 +587,6 @@ table {
           font-weight: 400;
           font-family: "Motiva Sans" sans-serif;
           text-align: center;
-          text-justify: center;
           text-decoration: none;
           white-space: nowrap;
           cursor: pointer; }
@@ -561,7 +599,6 @@ table {
             font-weight: 400;
             font-family: "Motiva Sans" sans-serif;
             text-align: center;
-            text-justify: center;
             text-decoration: line-through;
             opacity: 0.9; }
           .browse__content--left .items .item .price--after {
@@ -570,7 +607,6 @@ table {
             font-weight: 600;
             font-family: "Motiva Sans" sans-serif;
             text-align: center;
-            text-justify: center;
             text-decoration: none; }
       .browse__content--left .items .item.active {
         background: #95bcd3; }
@@ -594,7 +630,6 @@ table {
             font-weight: 600;
             font-family: "Motiva Sans" sans-serif;
             text-align: start;
-            text-justify: center;
             text-decoration: none; }
           .browse__content--right .preview .item .info__category {
             background: #173d57;
@@ -605,7 +640,6 @@ table {
             font-weight: 400;
             font-family: "Motiva Sans" sans-serif;
             text-align: start;
-            text-justify: center;
             text-decoration: none;
             opacity: 0.4; }
         .browse__content--right .preview .item .images img {
@@ -692,7 +726,6 @@ table {
     font-weight: 400;
     font-family: "Motiva Sans" sans-serif;
     text-align: center;
-    text-justify: center;
     text-decoration: none;
     text-transform: uppercase; }
   .special-game__inner {
@@ -810,7 +843,6 @@ table {
     font-weight: 400;
     font-family: "Motiva Sans" sans-serif;
     text-align: center;
-    text-justify: center;
     text-decoration: none; }
     .login .form-input .text:hover {
       opacity: 0.8; }
@@ -827,6 +859,9 @@ table {
 .cart {
   min-height: 70vh;
   background-image: linear-gradient(to left, rgba(27, 40, 56, 0.5), rgba(149, 188, 211, 0.3)), url("https://store.cloudflare.steamstatic.com/public/shared/images/joinsteam/acct_creation_bg.jpg");
-  padding-top: 2rem;
+  padding: 2rem 0;
   display: flex;
   justify-content: center; }
+  @media (max-width: 800px) {
+    .cart {
+      padding-top: 7rem; } }

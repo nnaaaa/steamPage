@@ -19,7 +19,7 @@ export default function Browse() {
     >
       <img src={info.avatar} alt='gameInfo'/> 
       <div className='info'>
-        <p className='info__title'>{info.name}</p>
+        <p className='info__name'>{info.name}</p>
         <p className='info__category'>
           {info.categories.map(category =>
             <span>{category},</span>

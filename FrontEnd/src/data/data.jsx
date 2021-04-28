@@ -5,7 +5,7 @@ export const DataConsumer = createContext()
 
 export default function Data({children}){
     const [gameInfo, setGameInfo] = useState([]);
-
+    const [isLogin,setIsLogin]=useState(false);
     useEffect(() => {
         axios.get('/game')
             .then(res => {
@@ -18,7 +18,8 @@ export default function Data({children}){
     return (
         <DataConsumer.Provider
             value={{
-                gameInfo
+                gameInfo,
+                isLogin,setIsLogin
             }}
         >
             {children}
