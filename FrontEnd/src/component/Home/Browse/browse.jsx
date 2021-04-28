@@ -1,23 +1,23 @@
-import { useEffect, useState,useContext } from 'react'
+import { useEffect, useState, useContext } from 'react'
 import { DataConsumer } from '../../../data/data'
 export default function Browse() {
-  const { gameInfo }=useContext(DataConsumer)
-  const [activeItem,setActiveItem] = useState(0);
-  const [activeCategory,setActiveCategory] = useState(0);
+  const { gameInfo } = useContext(DataConsumer)
+  const [activeItem, setActiveItem] = useState(0);
+  const [activeCategory, setActiveCategory] = useState(0);
 
   useEffect(() => {
     var titles = document.querySelectorAll('.title');
-    titles.forEach((title,index) => title.addEventListener('click', (e) => {
+    titles.forEach((title, index) => title.addEventListener('click', (e) => {
       setActiveCategory(index);
-    }))   
+    }))
   })
 
   const Info = gameInfo.map((info, index) =>
-    <div 
-      className={`item ${index===activeItem ? 'active' : ''}`} 
-      onMouseOver={()=>setActiveItem(index)}
+    <div
+      className={`item ${index === activeItem ? 'active' : ''}`}
+      onMouseOver={() => setActiveItem(index)}
     >
-      <img src={info.avatar} alt='gameInfo'/> 
+      <img src={info.avatar} alt='gameInfo' />
       <div className='info'>
         <p className='info__name'>{info.name}</p>
         <p className='info__category'>
@@ -26,16 +26,29 @@ export default function Browse() {
           )}
         </p>
       </div>
-      <p className='sale-off'>-{info.sale}</p>
+      <p className='sale-off'>{info.sale != 0 ? `-${info.sale}%` : ``}</p>
       <div className='price'>
-        <p className='price--before'>{info.price}đ</p>
-        <p className='price--after'>{info.price}đ</p>
+        {info.sale != 0 ?
+          <p className='price--before'>
+            {(info.price * 1000)
+              .toFixed(2)
+              .replace(/(\d)(?=(\d{3})+\.)/g, '$1.'
+              )}đ
+                    </p>
+          : ``
+        }
+        <p className='price--after'>
+          {(info.price * 1000 * (info.sale != 0 ? (100 - info.sale) / 100 : 1))
+            .toFixed(2)
+            .replace(/(\d)(?=(\d{3})+\.)/g, '$1.'
+            )}đ
+                </p>
       </div>
     </div>
   )
 
   const Detail = gameInfo.map((info, index) =>
-    <div className={`item ${index===activeItem ? 'active' : ''}`}>
+    <div className={`item ${index === activeItem ? 'active' : ''}`}>
       <div className='info'>
         <p className='info__title'>{info.name}</p>
         <p className='info__category'>
@@ -54,10 +67,10 @@ export default function Browse() {
   return (
     <section className='browse'>
       <div className='browse__titles'>
-        <div className={`title ${activeCategory===0 ? 'active' : ''}`}>New and Trending</div>
-        <div className={`title ${activeCategory===1 ? 'active' : ''}`}>Top Sellers</div>
-        <div className={`title ${activeCategory===2 ? 'active' : ''}`}>Popular Upcoming</div>
-        <div className={`title ${activeCategory===3 ? 'active' : ''}`}>Specials</div>
+        <div className={`title ${activeCategory === 0 ? 'active' : ''}`}>New and Trending</div>
+        <div className={`title ${activeCategory === 1 ? 'active' : ''}`}>Top Sellers</div>
+        <div className={`title ${activeCategory === 2 ? 'active' : ''}`}>Popular Upcoming</div>
+        <div className={`title ${activeCategory === 3 ? 'active' : ''}`}>Specials</div>
       </div>
       <div className='browse__content'>
         <div className='browse__content--left' >

@@ -576,6 +576,10 @@ table {
             font-family: "Motiva Sans" sans-serif;
             text-align: center;
             text-decoration: none;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            flex-direction: row;
             white-space: nowrap;
             opacity: 0.4; }
         .browse__content--left .items .item .sale-off {

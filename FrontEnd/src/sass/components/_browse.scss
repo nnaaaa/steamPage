@@ -58,6 +58,7 @@
                         }
                         &__category{
                             @include Text(0.8rem);
+                            @include ContentCenter($justify:flex-start);
                             white-space: nowrap; 
                             opacity:0.4;
                         }
