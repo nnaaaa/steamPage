@@ -7,6 +7,7 @@ import Carousel from './Carousel/carousel'
 import SpecialGame from './SpecialGame/specialgame'
 import Browse from './Browse/browse';
 
+
 export default function Store() {
   useEffect(() => {
     ScrollReveal().reveal('.store-content')

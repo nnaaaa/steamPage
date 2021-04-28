@@ -4,15 +4,21 @@ import { useState,useEffect, createContext} from 'react'
 export default function Login() {
     const [data, setData] = useState();
     const [login,setLogin]=useState();
-    function Login(){
-        axios.get('/user/login',{params})
+    function Login(){   
+        axios.get('/user/login',
+        {
+            params:data
+        })
         .then(res=>res.data)
         .then(res=>setData(res))
     }
     
-    useEffect(() => {
-        
-    })
+    const saveData=(target)=>{
+        setData({
+            ...data,
+            [target.name]:target.value
+        })
+    }
 
     return (
         <section className='login'>
@@ -23,11 +29,11 @@ export default function Login() {
                 <div className="form-input__items">
                     <div className="item">
                         <label htmlFor="user-name">Account name</label>
-                        <input type="text" id='user-name' placeholder='your account'/>
+                        <input onChange={(e)=>saveData(e.target)} type="text" id='user-name' placeholder='your account' name='account'/>
                     </div>
                     <div className="item">
                         <label htmlFor="password">Password</label>
-                        <input type="password" id="password" placeholder='your password'/>
+                        <input onChange={(e)=>saveData(e.target)} type="password" id="password" placeholder='your password'name='password'/>
                     </div>
                 </div>
                 <button onClick={()=>Login()} className="btn-custom custom-1 btn-submit">

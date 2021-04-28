@@ -7,13 +7,10 @@ export default function Data({children}){
     const [gameInfo, setGameInfo] = useState([]);
     const [isLogin,setIsLogin]=useState(false);
     useEffect(() => {
-        axios.get('/game')
-            .then(res => {
-                console.log(res)
-                return res.data
-            })
+        axios.get('/user/login')
+            .then(res => res.data)
             .then(res=>setGameInfo(res))
-    }, [])
+    },[])
 
     return (
         <DataConsumer.Provider
