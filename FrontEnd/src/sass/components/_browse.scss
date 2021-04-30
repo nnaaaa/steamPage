@@ -8,9 +8,9 @@
     &__titles {
         width: 100%;
         @include ContentCenter();
-        transform:translateY(-99%);
+        transform:translateY(-90%);
         .title {
-            padding: 0.2rem 0.5rem;
+            padding: 0.3rem 0.5rem;
 
             @include ContentCenter();
             @include Text(1rem,$title-color,400);
@@ -34,6 +34,13 @@
                 background:$bg-secondary-color;
                 padding:0.5rem;
                 @include Text(0.9rem,$text-color,$align:end);
+                .see-more{
+                    transition:0.2s;
+                    @include Text(1rem,$bg-tertiary-color,500);
+                    &:hover{
+                        opacity:0.6;
+                    }
+                }
             }
             .items{               
                 .item{
@@ -113,7 +120,7 @@
                     }
                     .info{
                         margin-bottom: 0.5rem;
-                        &__title{
+                        &__name{
                             @include Text(1.2rem,$browser-text-color,600,$align:start);
                         }
                         &__category{

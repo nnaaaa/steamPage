@@ -1,108 +1,159 @@
 .header {
-  width: 100%;
-  padding: 1rem;
-  background: $header-bg-color;
-  @include ContentCenter();
-
-  @include respond(phone) {
-    height: 5rem;
-
-    position: fixed;
-    z-index: 10;
-  }
-
-  &__logo {
-    width: 10rem;
-    img {
-      width: 100%;
-    }
-  }
-
-  &__toggle {
-    width: 2rem;
-    height: 2rem;
-
-    @include ContentCenter($display:none);
-    @include Text(4rem, $text-color);
-
-    position: absolute;
-    left: 1rem;
-    top: 1rem;
-    z-index: 20;
-
-    cursor: pointer;
-
-    img {
-      width: 100%;
-    }
+    width: 100%;
+    padding: 1rem 0;
+    background: $header-bg-color;
+    position: relative;
+    @include ContentCenter();
 
     @include respond(phone) {
-      @include ContentCenter($display:flex);
-    }
-  }
-
-  &__navbar {
-    display: flex;
-
-    @include respond(phone) {
-      width: 200px;
-      height: 100vh;
-      background: $toggle-bg-color;
-
-      display: flex;
-      flex-direction: column;
-
-      position: fixed;
-      z-index: 100;
-      top: 0;
-
-      transition: 0.4s linear;
+        height: 5rem;
+        padding:0;
+        position: fixed;
+        z-index: 10;
     }
 
-    .items {
-      height: 3rem;
-      padding: 0rem 1rem;
+    &__logo {
+        width: 15rem;
 
-      @include ContentCenter($justify:start);
-      @include Text($color:$text-color);
-
-      transition: 0.4s ease-in-out;
-      opacity: 0.6;
-
-      &:hover {
-        opacity: 1;
-      }
-
-      @include respond(phone) {
-        width: 100%;
-        padding: 1rem 0.5rem;
-      }
-    }
-  }
-
-  section {
-    display: flex;
-    position: absolute;
-    right: 2rem;
-    top: 1rem;
-
-    .sign {
-      @include Text(0.8rem, $text-color);
-      opacity: 0.7;
-
-      &:hover {
-        opacity: 1;
-      }
+        img {
+            width: 100%;
+        }
     }
 
-    .separator {
-      margin: 0 0.5rem;
-      @include Text(0.8rem, $text-color);
-      opacity: 0.7;
+    &__toggle {
+        width: 1.5rem;
+        height: 1.5rem;
+
+        @include ContentCenter($display:none);
+        @include Text(4rem, $text-color);
+
+        position: absolute;
+        left: 1rem;
+        top: 1rem;
+        z-index: 20;
+
+        cursor: pointer;
+        @include respond(phone) {
+            @include ContentCenter($display:flex);
+        }
     }
 
-    @include respond(tablet) {
-      display: none;
+    &__navbar {
+        display: flex;
+        transition: 0.2s linear;
+
+        &.active {
+            left: 0;
+        }
+
+        @include respond(phone) {
+            width: 200px;
+            height: 100vh;
+            background: $toggle-bg-color;
+
+            flex-direction: column;
+
+            position: fixed;
+            z-index: 100;
+            top: 0;
+            left: -100%;
+            z-index: 30;
+        }
+
+        &--wrapper {
+            width: 100vw;
+            height: 100vh;
+            background: rgba($bg-secondary-color, 0.7);
+
+            position: fixed;
+            top: 0;
+            transform: translateX(-110%);
+            transition: 0.3s linear;
+
+            &.active {
+                transform: translate(0);
+                z-index: 20;
+            }
+        }
+        &--right{
+            display:flex;
+            position: absolute;
+            right:1rem;
+        }
+
+        .items {
+            height: 3rem;
+            padding:0 1rem;
+            @include ContentCenter();
+            @include Text($color:$text-color);
+
+            transition: 0.4s ease-in-out;
+            opacity: 0.6;
+            &:hover {
+                opacity: 1;
+            }
+        }
     }
-  }
+
+    &__cart {
+        margin-right:2rem;     
+        @include ContentCenter();
+        .cart-icon{
+            position: relative;
+            opacity:0.6;
+            transition:0.4s ease-in-out; 
+            &:hover{
+                opacity:1;
+            }
+            svg{
+                fill:white;
+            }
+            .quantity{
+                width:1.2rem;
+                height:1rem;
+                background:$header-bg-color;
+                border-radius:50%;
+                border:1px solid white;
+    
+                @include Text(0.9rem, $text-color);
+                @include ContentCenter();
+    
+                position: absolute;
+                top: -3px;
+                right:-8px;
+            }           
+        } 
+    }
+
+    &__user {
+        display: flex;
+        @include ContentCenter();
+        .sign {
+            @include Text(0.8rem, $text-color);
+            opacity: 0.7;
+
+            &:hover {
+                opacity: 1;
+            }
+        }
+        .separator {
+            margin: 0 0.5rem;
+            @include Text(0.8rem, $text-color);
+            opacity: 0.7;
+        }
+        .avatar{
+            width:2rem;
+            height:2rem;
+            margin-right:0.5rem;
+            border-radius:50%;
+            box-shadow:0 0 5px rgba(255,255,255,0.6);
+            &:hover{
+                cursor: pointer;
+            }  
+            @include respond(phone){
+                width:2rem;
+                height:2rem;
+            }
+        }
+    }
 }

@@ -1,7 +1,10 @@
 const express=require('express')
 const userRoute=express.Router()
 const UserController=require('../controller/user.controller')
+const AuthMiddleWare = require('../middlewares/auth.middleware')
 
-userRoute.post('/register',UserController.postRegister)
-userRoute.get('/login',UserController.getLogin)
+userRoute.get('/register',UserController.postRegister)
+userRoute.get('/login',AuthMiddleWare.requireLogin,UserController.getLogin)
+userRoute.get('/updateCart', UserController.updateCart)
+
 module.exports=userRoute

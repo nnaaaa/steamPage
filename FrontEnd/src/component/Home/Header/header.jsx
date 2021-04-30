@@ -1,57 +1,59 @@
-import 'bootstrap/dist/css/bootstrap.min.css';
-import React, { useState, useEffect,useContext } from 'react';
+import { useState, useEffect, useContext } from 'react';
+import { Link } from "react-router-dom";
 
-import menu from './menu.svg';
 import { DataConsumer } from '../../../data/data'
+import { CartIcon, ToggleIcon } from '../../Icon/icon'
+import defaultPortrait from './portrait.jpeg'
 export default function Header() {
-    const [isOpen, setIsOpen] = useState(false);
-    const { isLogin }= useContext(DataConsumer)
-    const removeToggle = (e) => {
-        if (e.pageX <= 200)
-            return
-        setIsOpen(!isOpen)
-    }
-
-    useEffect(() => {
-        if (isOpen)
-            document.addEventListener('click', (e) => removeToggle(e))
-        return () => {
-            document.removeEventListener('click', removeToggle)
-        };
-    }, [isOpen]);
+    const [isToggle, setIsToggle] = useState(false);
+    const { isLogin, userCart } = useContext(DataConsumer)
+    const User = (
+        isLogin
+            ?
+            <section className='header__user'>
+                <img src={defaultPortrait} className='avatar' alt='avatar'></img>
+                <div className='arrow'></div>
+            </section >
+            :
+            <section className='header__user'>
+                <Link to='/user/login' className='sign-in sign'>Sign in</Link>
+                <div className='separator'>|</div>
+                <Link to='/user/register' className='sign-up sign'>Sign up</Link>
+            </section>
+    )
 
     return (
         <nav className='header'>
             <div
                 className='header__toggle'
-                onClick={() => setIsOpen(!isOpen)}
+                onClick={() => setIsToggle(!isToggle)}
             >
-                <img src={menu} alt='menu'/>
+                <ToggleIcon />
             </div>
 
-            <a className='header__logo' href='/'>
+            <Link className='header__logo' to='/'>
                 <img src='https://store.cloudflare.steamstatic.com/public/shared/images/responsive/header_logo.png' alt='' />
-            </a>
+            </Link>
 
-            <div
-                className='header__navbar'
-                style={{
-                    left: `${isOpen ? 0 : -100}%`,
-                }}
-            >
-                <a href='/' className='items'>Store</a>
-                <a href='' className='items'> Community</a>
-                <a href='' className='items'> About</a>
-                <a href='' className='items'> Support</a>
+            <div className={`header__navbar ${isToggle ? 'active' : ''}`}>
+                <Link to='/store' className='items'>Store</Link>
+                <Link to='/' className='items'>Community</Link>
+                <Link to='/' className='items'>About</Link>
+                <Link to='/' className='items'>Support</Link>
             </div>
-            
-            {isLogin ? ``:
-                <section>
-                    <a href='/user/login' className='sign-in sign'>Sign in</a>
-                    <div className='separator'>|</div>
-                    <a href='/user/register' className='sign-up sign'>Sign up</a>
-                </section>
-            }
+            <div
+                className={`header__navbar--wrapper ${isToggle ? 'active' : ''}`}
+                onClick={() => setIsToggle(!isToggle)}
+            ></div>
+            <div className='header__navbar--right'>
+                <span className='header__cart'>
+                    <Link to='/user/cart' className='cart-icon'>
+                        <CartIcon/>
+                        <div className='quantity'>{userCart.length}</div>
+                    </Link>
+                </span>
+                {User}
+            </div>
         </nav>
     )
 }

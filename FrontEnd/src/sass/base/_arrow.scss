@@ -1,0 +1,25 @@
+.arrow{
+    width:1rem;
+    height:1rem;
+    position: relative;
+    &:after,&:before{
+        content:'';
+        width:50%;
+        height:10%;
+        background:$text-color;
+        position: absolute;
+    }
+    &:after{
+        top:50%;
+        right:40%;
+        transform:translateY(-50%) rotate(45deg);
+    }
+    &:before{
+        top:50%;
+        left:40%;
+        transform:translateY(-50%) rotate(-45deg);
+    }
+    &:hover{
+        cursor:pointer;
+    }
+}

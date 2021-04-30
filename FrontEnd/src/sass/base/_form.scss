@@ -1,0 +1,14 @@
+.form-input {
+    .text {
+        display: block;
+        @include Text(1rem, $gutter-text-color);
+
+        &:hover {
+            opacity: 0.8;
+        }
+    }
+    .error{
+        padding:0.2rem 0.5rem;
+        color:rgba(red,0.5);          
+    }
+}

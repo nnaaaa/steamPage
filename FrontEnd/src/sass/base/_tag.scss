@@ -1,7 +1,6 @@
 body{
     padding:0;
     margin: 0;
-    max-width:100%;
 }
 ::-webkit-scrollbar{
     width:0.7rem;
@@ -17,8 +16,13 @@ p{
     margin:0 !important;
 }
 
+a,a:active,a:hover{
+    text-decoration: none !important;
+}
+
 table{
     background: rgba($bg-tertiary-color,0.5);
+    border-collapse: collapse;
     thead{
         td{
             background: rgba($bg-primary-color,0.5);
@@ -34,5 +38,4 @@ table{
         padding:0.5rem;
         @include Text(1rem,$header-bg-color);
     }
-
 }

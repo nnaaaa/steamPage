@@ -10,14 +10,13 @@
     $size:1rem,
     $color:white,
     $weight:400,
-    $family:'Motiva Sans' sans-serif,
     $align:center,
     $decoration:none
 ){
     font-size: $size;
     color:$color;
     font-weight:$weight;
-    font-family: $family;
+    font-family: Arial, Helvetica, sans-serif;
     text-align:$align ;
     text-decoration:$decoration;
     @content;

@@ -2,7 +2,7 @@ import loupe from './loupe.svg'
 
 export default function Search() {
   return (
-    <search className='search'>
+    <section className='search'>
       <div className='search__category'>
         <a className='search__title' href=''>
           <div>Your Store</div>
@@ -21,12 +21,11 @@ export default function Search() {
         </a>
       </div>
 
-      <div className='search__tool'>
-        <form action='' className='search__form'>
-          <input className='search__input' type='text' placeholder='search the store' />
-          <span className='search__icon'><img src={loupe} alt="loupe"/></span>
-        </form>
-      </div>
-    </search>
+      <form action='' className='search__form'>
+        <input className='input' type='text' placeholder='search the store' />
+        <img className='icon' src={loupe} alt="loupe" />
+      </form>
+
+    </section>
   )
 }

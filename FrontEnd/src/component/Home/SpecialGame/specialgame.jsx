@@ -40,7 +40,6 @@ export default function SpecialGame() {
             ],
         ]
         setImage(img)
-
     }, [])
 
     useEffect(() => {
@@ -54,6 +53,14 @@ export default function SpecialGame() {
         }
     }, [activeIndex])
     
+    const Indicators=image.map((url, index) =>
+        <div
+            className={`indicator ${index === activeIndex ? `active` : ``}`}
+            onClick={() => setActiveIndex(index)}
+        >
+        </div>
+    )
+
     return (
         <section className='special-game'>
             <div className='special-game__header'>
@@ -65,14 +72,10 @@ export default function SpecialGame() {
                 <SetGameThree url={image[2]} currentIndex={activeIndex} stateIndex={2}/>
                 <SetGameFour url={image[3]} currentIndex={activeIndex} stateIndex={3}/>
 
-                <div className='special-game__indicators' style={{ width: `${image.length * 30 + 30}px` }}>
-                    {image.map((url, index) =>
-                        <div
-                            className={`indicator ${index === activeIndex ? `active` : ``}`}
-                            onClick={() => setActiveIndex(index)}
-                        >
-                        </div>
-                    )}
+                <div className='special-game__indicators'
+                    style={{ width: `${image.length * 30 + 30}px` }}
+                >
+                    {Indicators}
                 </div>
                 <div
                     className="special-game__control--left special-game__control"

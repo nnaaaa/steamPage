@@ -8,9 +8,9 @@ $icon-color:(
 .footer{
     width:100%;
     background:$footer-bg-color;
+    box-sizing: border-box;
     padding:2rem 4rem;
     @include respond(phone){
-        padding:0.5rem 1rem;
     }
     &__contact{
         width:100%;
@@ -56,13 +56,10 @@ $icon-color:(
             }
         }
         div{
-            color:$text-color;
-            font-size:1rem;
-            font-weight: 400;
+            @include Text(1rem,$text-color,$align:start);
             padding:0 2rem;
             opacity: 0.8;
             @include respond(phone){
-                font-size:3vw;
                 padding:0.5rem 0;
             }
         }

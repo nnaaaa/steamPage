@@ -27,25 +27,30 @@ export default function Carousel() {
             clearTimeout(AutoSlideShow)
         }
     }, [activeIndex])
+    
+    const Carousel=image.map((url, index) =>
+        <div className={`carousel__items ${index === activeIndex ? `active` : ``}`} >
+            <img src={url} alt='' />
+        </div>
+    )
+    const Indicators=image.map((url, index) =>
+        <div
+            className={`indicator ${index === activeIndex ? `active` : ``}`}
+            onClick={() => setActiveIndex(index)}
+        >
+        </div>
+    )
     return (
         <section className='carousel'>
             <div className='carousel__header'>
                 featured & recommended
             </div>
             <div className='carousel__inner'>
-                {image.map((url, index) =>
-                    <div className={`carousel__items ${index === activeIndex ? `active` : ``}`} >
-                        <img src={url} alt='' />
-                    </div>
-                )}
-                <div className='carousel__indicators' style={{width:`${image.length*30+30}px`}}>
-                    {image.map((url, index) =>
-                        <div
-                            className={`indicator ${index === activeIndex ? `active` : ``}`}
-                            onClick={() => setActiveIndex(index)}
-                        >
-                        </div>
-                    )}
+                {Carousel}
+                <div className='carousel__indicators'
+                    style={{ width: `${image.length * 30 + 30}px` }}
+                >
+                    {Indicators}
                 </div>
                 <div
                     className='carousel__control--left carousel__control'

@@ -1,17 +1,17 @@
-export default function List({ info }) {
+export default function List({ info ,index,onClick}) {
     const styleImg = {
-        width: `10vw`,
-        height: `6vw`,
+        width: `20vw`,
+        height: `8vw`,
         backgroundImage: `url('${info.avatar}')`,
         backgroundPosition: `center center`,
         backgroundRepeat: `no-repeat`,
         backgroundSize: `cover`,
         borderRadius: `0.1rem`,
         boxShadow: `0 0 5px rgba(0,0,0,0.5)`,
-        margin: `0.5rem 1rem`
+        margin: ``
     }
     return (
-        <tr>
+        <tr key={index}>
             <td>
                 <div style={styleImg}></div>
             </td>
@@ -19,7 +19,7 @@ export default function List({ info }) {
                 <p className='info__name'>{info.name}</p>
             </td>
             <td>
-                <p className='sale-off'>{info.sale != 0 ? `-${info.sale}%` : ``}</p>
+                <p className='sale-off'>{info.sale != 0 ? `-${info.sale}%` : ''}</p>
             </td>
             <td className='price'>
                 {info.sale != 0 ?
@@ -40,7 +40,7 @@ export default function List({ info }) {
 
             </td>
             <td style={{ padding: '0 1.5rem' }}>
-                <div className='btn-custom'>x</div>
+                <div onClick={()=>onClick(index)} className='btn-custom'>x</div>
             </td>
         </tr>
     )

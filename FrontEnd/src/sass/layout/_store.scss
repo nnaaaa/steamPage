@@ -1,0 +1,70 @@
+.list-game{
+    padding:2rem 2rem 0 2rem;
+    min-height: 70vh;
+    display: grid;
+    grid-template-columns: repeat(6,1fr);
+    gap:1rem;
+    background-image: linear-gradient(to left,
+            rgba($bg-secondary-color, 0.5),
+            rgba($bg-tertiary-color, 0.3)),
+        url('https://store.cloudflare.steamstatic.com/public/shared/images/joinsteam/acct_creation_bg.jpg');
+    @include respond(phone){
+        padding-top:7rem;
+        padding-bottom: 2rem;
+    }
+    .card{
+        height:min-content;
+        position: relative;
+        background:rgba($bg-tertiary-color, 0.7);
+        img{
+            width:100%;
+        } 
+        .images{
+            display:flex;
+            flex-wrap: wrap;
+            margin-bottom: 0.5rem;
+            img{
+                width:50%;
+            }
+        }          
+        .name{
+            text-align: center;
+            padding-bottom: 0.5rem;
+        }
+        .category{
+            padding-bottom: 0.5rem;
+        }
+        .sale-off{
+            padding:0.2rem 0.4rem;
+            border-radius: 0 2px 2px 2px;
+            position: absolute;
+            top:0;
+        }
+        .contact{
+            padding:0 0.5rem;
+            .cartBtn{
+                position: relative;
+                cursor:pointer;
+                transition:0.3s;
+                &:hover{
+                    opacity:0.5;
+                }
+                .addCart{                
+                    @include Text(1rem, black,500){
+                        line-height: 0;
+                    }
+                    @include ContentCenter();
+                    
+                    position: absolute;
+                    top: -3px;
+                    right:-8px;
+                }
+            }
+        }
+        .price{
+            width:100%;
+            background:rgba($bg-secondary-color, 0.7);
+            padding:0.5rem 0;
+        }
+    }
+}

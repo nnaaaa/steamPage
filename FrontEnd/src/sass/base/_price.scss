@@ -13,12 +13,12 @@
     }
 }
 .sale-off{                     
+    width:min-content;
     background:$sale-off-color;
     padding:0 0.1rem;
     border-radius:2px;
-
+    display:inline-block;
     @include Text(0.9rem,$sale-off-text-color);
-    white-space: nowrap;
     cursor: pointer;
 }
 .price{

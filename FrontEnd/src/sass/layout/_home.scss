@@ -6,11 +6,11 @@
         url("background.jpg");
   background-repeat: no-repeat;
   background-position: center 0;
-
+  
   &__store {
     width: 100%;
     padding: 3rem 5rem 6rem 5rem;
-
+    box-sizing: border-box;
     @include ContentCenter($align:flex-start);
 
     &--left {
@@ -23,8 +23,8 @@
 
     &--right {
       width: 80%;
+      box-sizing: border-box;
       @include ContentCenter($direction:column);
-
       @include respond(phone) {
         width: 100%;
         margin-top: 5rem;

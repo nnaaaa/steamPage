@@ -11,4 +11,9 @@
 
     display: flex;
     justify-content: center;
+    a{
+        opacity:1;
+        transition:0.3s;
+        @include Text(1.2rem,$facebook-color,400); 
+    }
 }

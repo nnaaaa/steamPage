@@ -11,15 +11,13 @@
     @include respond(phone) {
         padding-top: 5rem;
     }
-
-    .form-input {
-        .text {
-            display: block;
-            @include Text(1rem, $gutter-text-color);
-
-            &:hover {
-                opacity: 0.8;
-            }
+    a{
+        @include Text(1.3rem,$bg-tertiary-color,400);
+        opacity:0.7;
+        &:hover{
+            color:$bg-tertiary-color;
+            opacity:1;
         }
     }
+
 }

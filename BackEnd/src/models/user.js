@@ -17,6 +17,14 @@ const User = new Schema({
     },
     country: {
         type: String
+    },
+    coin: {
+        type: Number,
+        default:0
+    },
+    cart: {
+        type: Array,
+        default:[]
     }
 },{
     versionKey: false 
