@@ -5,22 +5,14 @@ import { Link } from "react-router-dom";
 
 export default function ListGame() {
     const {
-        gameInfo, setActiveGameInfo,
-        updateUserCart, user, userCart, setUserCart } = useContext(DataConsumer)
-    const addCart = (newCart, e) => {
-        e.preventDefault()
-        setUserCart([...userCart, newCart])
-        const newUser = {
-            ...user,
-            cart: [...userCart, newCart]
-        }
-        updateUserCart(newUser)
-    }
+        Price,addCart,
+        gameInfo, setActiveGameInfo,} = useContext(DataConsumer)
+    
     return (
         <section className='list-game'>
             {gameInfo.map(item =>
                 <Link
-                    className='card' to='/game/detailCart'
+                    className='card info' to='/game/detailCart'
                     onClick={() => setActiveGameInfo(item)}
                 >
                     <img src={item.avatar} alt="" />
@@ -29,10 +21,12 @@ export default function ListGame() {
                             <img src={url} alt='game' />
                         )}
                     </div>
-                    <p className='info__name name'>{item.name}</p>
-                    <p className='info__category category'>
+                    <p className='name'>{item.name}</p>
+                    <p className='category'>
                         {item.categories.map((category, index, arr) =>
-                            <span>{category === "" || index === arr.length - 1 ? `` : `${category},`}</span>
+                            <span>
+                                {index === arr.length - 1 ? `${category}` : `${category},`}
+                            </span>
                         )}
                     </p>
                     <p className='sale-off'>
@@ -45,23 +39,24 @@ export default function ListGame() {
                             <CartIcon />
                             <div className='addCart'>+</div>
                         </span>
+                        <span className='evaluate'>
+                            <span>*</span>
+                            <span>*</span>
+                            <span>*</span>
+                            <span>*</span>
+                            <span>*</span>                        
+                        </span>
                     </div>
                     <div className='price'>
                         {item.sale !== 0 ?
                             <p className='price--before'>
-                                {(item.price * 1000)
-                                    .toFixed(2)
-                                    .replace(/(\d)(?=(\d{3})+\.)/g, '$1.'
-                                    )}đ
-                                </p>
+                                {Price(item.price)}
+                            </p>
                             : ``
                         }
                         <p className='price--after'>
-                            {(item.price * 1000 * (item.sale !== 0 ? (100 - item.sale) / 100 : 1))
-                                .toFixed(2)
-                                .replace(/(\d)(?=(\d{3})+\.)/g, '$1.'
-                                )}đ
-                            </p>
+                            {Price(String(item.price * (100 - item.sale) / 100))}
+                        </p>
                     </div>
                 </Link>
             )}

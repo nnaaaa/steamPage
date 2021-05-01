@@ -1,5 +1,5 @@
 .list-game{
-    padding:2rem 2rem 0 2rem;
+    padding:2rem;
     min-height: 70vh;
     display: grid;
     grid-template-columns: repeat(6,1fr);
@@ -8,12 +8,18 @@
             rgba($bg-secondary-color, 0.5),
             rgba($bg-tertiary-color, 0.3)),
         url('https://store.cloudflare.steamstatic.com/public/shared/images/joinsteam/acct_creation_bg.jpg');
-    @include respond(phone){
+    @include respond(tablet){
+        grid-template-columns: repeat(4,1fr);
         padding-top:7rem;
-        padding-bottom: 2rem;
     }
+    @include respond(phone){
+        grid-template-columns: repeat(2,1fr);
+    }
+    @include respond(small){
+        grid-template-columns: repeat(1,1fr);
+    }
+    
     .card{
-        height:min-content;
         position: relative;
         background:rgba($bg-tertiary-color, 0.7);
         img{
@@ -42,6 +48,8 @@
         }
         .contact{
             padding:0 0.5rem;
+            display: flex;
+            justify-content:space-between;
             .cartBtn{
                 position: relative;
                 cursor:pointer;
@@ -56,9 +64,13 @@
                     @include ContentCenter();
                     
                     position: absolute;
-                    top: -3px;
-                    right:-8px;
+                    top: 1px;
+                    right:-5px;
                 }
+            }
+            .evaluate{
+                color:rgb(199, 199, 199);
+                @include ContentCenter();
             }
         }
         .price{

@@ -1,21 +1,21 @@
-.info{
-    width:30%; 
+.info{ 
     overflow: hidden;
-    &__name{
+    .name{
         color:$text-color;
         white-space: nowrap; 
         transition:0.3s;
     }
-    &__category{
+    .category{
         @include Text(0.8rem);
         white-space: nowrap; 
         opacity:0.4;
     }
 }
 .sale-off{                     
-    width:min-content;
+    width:2rem;
+    height:min-content;
     background:$sale-off-color;
-    padding:0 0.1rem;
+    padding:0 0.2rem;
     border-radius:2px;
     display:inline-block;
     @include Text(0.9rem,$sale-off-text-color);
@@ -25,10 +25,16 @@
     width:20%;
     overflow: hidden;
     &--before{
-        @include Text(0.7rem,$bg-tertiary-color,$decoration: line-through);  
-        opacity:0.9;       
+        @include Text(0.7rem,rgba($bg-tertiary-color,0.7),$decoration: line-through);  
+        opacity:0.9;   
+        @include respond(phone){
+            font-size:0.6rem;
+        }    
     }
     &--after{
-        @include Text(0.9rem,$bg-tertiary-color,$weight:600);
+        @include Text(0.9rem,rgba($bg-tertiary-color,1.1),$weight:600);
+        @include respond(phone){
+            font-size:0.7rem;
+        }    
     }
 }

@@ -1,7 +1,7 @@
 import { useState, useContext } from 'react'
 import { DataConsumer } from '../../../data/data'
 export default function Browse() {
-    const { gameInfo } = useContext(DataConsumer)
+    const { gameInfo, Price } = useContext(DataConsumer)
     const [activeItem, setActiveItem] = useState(0)
     const [activeCategory, setActiveCategory] = useState(`New and Trending`)
     const [categories] = useState([
@@ -17,40 +17,36 @@ export default function Browse() {
         >
             <img src={info.avatar} alt='gameInfo' />
             <div className='info'>
-                <p className='info__name'>{info.name}</p>
-                <p className='info__category'>
+                <p className='name'>{info.name}</p>
+                <p className='category'>
                     {info.categories.map((category, index, arr) =>
-                        <span>{category === "" || index === arr.length - 1 ? `` : `${category},`}</span>
+                        <span>
+                            {index === arr.length - 1 ? `${category}` : `${category},`}
+                        </span>
                     )}
                 </p>
             </div>
-            <p className='sale-off'>{info.sale !== 0 ? `-${info.sale}%` : ``}</p>
+            <p className='sale-off'>{info.sale != 0 ? `-${info.sale}%` : ''}</p>
             <div className='price'>
-                {info.sale !== 0 ?
+                {info.sale != 0 ?
                     <p className='price--before'>
-                        {(info.price * 1000)
-                            .toFixed(2)
-                            .replace(/(\d)(?=(\d{3})+\.)/g, '$1.'
-                            )}đ
+                        {Price(info.price)}
                     </p>
                     : ``
                 }
                 <p className='price--after'>
-                    {(info.price * 1000 * (info.sale !== 0 ? (100 - info.sale) / 100 : 1))
-                        .toFixed(2)
-                        .replace(/(\d)(?=(\d{3})+\.)/g, '$1.'
-                        )}đ
+                    {Price(String(info.price * (100 - info.sale) / 100))}
                 </p>
             </div>
         </div>
     )
     const Detail = gameInfo.map((info, index) =>
         <div className={`item ${index === activeItem ? 'active' : ''}`} key={index}>
-            <div className='info'>
-                <p className='info__name'>{info.name}</p>
-                <p className='info__category'>
-                    {info.categories.map(category =>
-                        <span>{category}</span>
+            <div className='info' style={{width:'auto'}}>
+                <p className='name'>{info.name}</p>
+                <p className='category' >
+                    {info.categories.map((category, index, arr) =>
+                        index === arr.length - 1 ? `${category}` : `${category},`
                     )}
                 </p>
             </div>

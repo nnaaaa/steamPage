@@ -4,9 +4,9 @@ import { Link } from "react-router-dom";
 import List from './list'
 import { DataConsumer } from '../../../data/data'
 export default function Cart() {
-    const { user, setUser,userCart,setUserCart,updateUserCart } = useContext(DataConsumer)
+    const { Price, user, userCart, setUserCart, updateUserCart } = useContext(DataConsumer)
     const deleteCart = (index) => {
-        const newCart=userCart.filter((cart,curIndex) => curIndex !== index)
+        const newCart = userCart.filter((cart, curIndex) => curIndex !== index)
         setUserCart(newCart)
         const newUser = {
             ...user,
@@ -16,7 +16,7 @@ export default function Cart() {
     }
     return (
         <section className='cart'>
-            {userCart.length!==0 ?
+            {userCart.length !== 0 ?
                 <table>
                     <thead>
                         <td>Product</td>
@@ -26,20 +26,18 @@ export default function Cart() {
                         <td></td>
                     </thead>
                     <tbody>
-                        {userCart.map((item,index) =>
-                            <List info={item} onClick={deleteCart} index={index}/>
+                        {userCart.map((item, index) =>
+                            <List info={item} onClick={deleteCart} index={index} />
                         )}
                     </tbody>
                     <thead>
                         <td colspan='2'>Total</td>
-                        <td colspan='3' style={{ color: `lightgreen` }}>
-                            {(userCart.reduce((accumulate, item) =>
-                                accumulate + parseInt(item.price) *
-                                (item.sale != 0 ? (100 - item.sale) / 100 : 1)
-                                , 0
-                            )*1000).toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, '$1.')
-                            }
-                            .đ
+                        <td colspan='3' className='total-price'>
+                            {Price(String(
+                                (userCart.reduce((accumulate, item) =>
+                                    accumulate + parseInt(item.price)
+                                    * ((100 - item.sale) / 100), 0)))
+                            )}
                         </td>
                     </thead>
                 </table> :
@@ -47,12 +45,12 @@ export default function Cart() {
                     <thead>
                         <td>
                             <p>Empty Cart</p>
-                            <Link to='/'>Go to store</Link>
+                            <Link to='/store'>Go to store</Link>
                         </td>
                     </thead>
                 </table>
             }
-            
+
         </section >
     )
 }

@@ -1,7 +1,7 @@
 const mongoose = require('mongoose')
 async function connect() {
     try {
-        await mongoose.connect('mongodb+srv://cusa789:123tumodi@cluster0.z53no.mongodb.net/Steam?retryWrites=true&w=majority',{
+        await mongoose.connect(process.env.DB_URL ,{
             useNewUrlParser: true,
             useUnifiedTopology: true,
             useFindAndModify: false,

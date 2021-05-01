@@ -23,6 +23,9 @@
 }
 
 @mixin respond ($breakpoint){
+    @if ($breakpoint==small){
+        @media (max-width:300px) {@content}
+    }
     @if ($breakpoint==phone){
         @media (max-width:800px) {@content}
     };

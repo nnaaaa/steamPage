@@ -1,6 +1,8 @@
 import { useState, useEffect, createContext } from 'react'
 import axios from 'axios'
 
+import Price from '../logic/price'
+
 export const DataConsumer = createContext()
 
 export default function Data({children}){
@@ -35,7 +37,15 @@ export default function Data({children}){
         axios.get('/user/updateCart', { params: newUser })
         .then(res=>1)
     }
-
+    const addCart = (newCart, e) => {
+        e.preventDefault()
+        setUserCart([...userCart, newCart])
+        const newUser = {
+            ...user,
+            cart: [...userCart, newCart]
+        }
+        updateUserCart(newUser)
+    }
     return (
         <DataConsumer.Provider
             value={{
@@ -44,7 +54,8 @@ export default function Data({children}){
                 isLogin, setIsLogin,
                 user, setUser,
                 userCart,setUserCart,
-                updateUserCart
+                updateUserCart,
+                Price,addCart,
             }}
         >
             {children}

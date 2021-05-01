@@ -97,7 +97,7 @@
 
     &__cart {
         margin-right:2rem;     
-        @include ContentCenter();
+        @include ContentCenter();  
         .cart-icon{
             position: relative;
             opacity:0.6;
@@ -153,6 +153,54 @@
             @include respond(phone){
                 width:2rem;
                 height:2rem;
+            }
+        }
+        .arrow{
+            pointer-events: stroke;
+            &.show{
+                .info{
+                    display:block;
+                }
+            }
+            .info{
+                display:none;
+                width:15vw;
+                height:20vw;
+                box-sizing: border-box;
+                background-image: linear-gradient(to left,
+                rgba($bg-secondary-color, 0.5),
+                rgba($bg-tertiary-color, 0.6)),
+                url("backgroundUser.jpg");
+                background-position: center center;
+                background-size: cover;
+                border-radius: 5px;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
+                padding:1rem;
+                
+                position: absolute;
+                top:200%;
+                right:0;
+                z-index: 100;
+                @include respond(phone) {
+                    width:15rem;
+                    height:20rem;
+                }
+                p{
+                    margin-bottom: 1rem !important;
+                    font-size: 1rem;
+                    overflow: hidden;
+                    white-space: nowrap;
+                    &>span{
+                        @include Text(0.9rem,rgba($text-color,0.6));
+                    }
+                }
+                .coin{
+                    overflow:visible;
+                    @include Text(1.1rem,rgba(209, 209, 18, 0.877),600);
+                }
+                .user{
+                    @include ContentCenter();
+                }
             }
         }
     }

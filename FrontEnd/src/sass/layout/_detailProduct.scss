@@ -1,0 +1,59 @@
+.detail-game{
+    background-image: linear-gradient(to left,
+            rgba($bg-secondary-color, 0.5),
+            rgba($bg-tertiary-color, 0.3)),
+        url('backgroundUser.jpg');
+    background-size: cover;
+    background-position: center center;
+    box-sizing: border-box;
+    padding:1rem;
+    @include ContentCenter($direction:column);
+    @include respond(phone){
+        padding-top:6rem;
+    }
+    .info{
+        width:100%;
+        background:$bg-tertiary-color;
+        box-sizing: border-box;
+        padding:0.5rem;
+        @include ContentCenter($justify:space-between);
+        .price{
+            &--before,&--after{
+                font-size:0.9rem;
+                color:rgba($bg-secondary-color, 0.6) !important;
+            }
+        }
+        .contact{
+            padding:0 0.5rem;
+            display: flex;
+            justify-content:space-between;
+            .cartBtn{
+                position: relative;
+                cursor:pointer;
+                transition:0.3s;
+                &:hover{
+                    opacity:0.5;
+                }
+                .addCart{                
+                    @include Text(1rem, black,500){
+                        line-height: 0;
+                    }
+                    @include ContentCenter();
+                    
+                    position: absolute;
+                    top: 1px;
+                    right:-5px;
+                }
+            }
+        }
+    }
+    .images{
+        gap:1rem;
+        img{
+            width:50%;
+        }
+        @include respond(phone){
+            width:100%;
+        }
+    }
+}

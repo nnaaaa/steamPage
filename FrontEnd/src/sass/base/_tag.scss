@@ -23,19 +23,30 @@ a,a:active,a:hover{
 table{
     background: rgba($bg-tertiary-color,0.5);
     border-collapse: collapse;
+    @include respond(phone){
+        width:90%;
+    }
     thead{
         td{
             background: rgba($bg-primary-color,0.5);
             padding:1rem;
-            @include Text(1.3rem,$text-color,500);
+            @include Text(1.3rem,$text-color,500);  
+            @include respond(phone){
+                font-size:0.9rem;
+            }      
         }
     }
     tr{
         padding:0.5rem;
-        @include Text(1rem,$header-bg-color,$align:start);
+        @include Text(1rem,$header-bg-color,$align:start);   
+        td{
+            padding:0.5rem;
+            @include Text(1rem,$header-bg-color);
+            @include respond(phone){
+                padding:0.3rem !important;
+                font-size:0.9rem;
+            }
+        } 
     }
-    td{
-        padding:0.5rem;
-        @include Text(1rem,$header-bg-color);
-    }
+    
 }

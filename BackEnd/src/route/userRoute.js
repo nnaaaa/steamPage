@@ -6,5 +6,5 @@ const AuthMiddleWare = require('../middlewares/auth.middleware')
 userRoute.get('/register',UserController.postRegister)
 userRoute.get('/login',AuthMiddleWare.requireLogin,UserController.getLogin)
 userRoute.get('/updateCart', UserController.updateCart)
-
+userRoute.get('/logout',UserController.getLogout)
 module.exports=userRoute

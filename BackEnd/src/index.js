@@ -1,12 +1,14 @@
 const express=require('express')
-const app= express()
-const port=4000;
 const cors=require('cors')
-const cookie=require('cookie-parser')
+const cookie = require('cookie-parser')
+const dotenv= require('dotenv')
 const userRoute = require('./route/userRoute')
 const gameRoute = require('./route/gameRoute')
-const db= require('./config/db/mongoose')
+const db = require('./config/db/mongoose')
+dotenv.config()
 db.connect()
+const app = express()
+const port=process.env.PORT;
 
 app.use(express.urlencoded({ extended: true }))
 app.use(cookie())

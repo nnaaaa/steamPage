@@ -66,5 +66,11 @@ class UserController {
         User.updateOne({ account: req.query.account }, req.query)
             .then(()=>res.redirect('back'))
     }
+    //[GET] /user/logout
+    getLogout(req, res, next) {
+        res.clearCookie('account')
+        console.log(req.cookies)
+        res.redirect('back')
+    }
 }
 module.exports = new UserController()
