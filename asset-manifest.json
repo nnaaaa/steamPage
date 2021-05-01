@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/steamPage/static/css/main.3133eba0.chunk.css",
+    "main.css": "/steamPage/static/css/main.4c9b60e2.chunk.css",
     "main.js": "/steamPage/static/js/main.1bb8aa78.chunk.js",
     "main.js.map": "/steamPage/static/js/main.1bb8aa78.chunk.js.map",
     "runtime-main.js": "/steamPage/static/js/runtime-main.b005b42f.js",
@@ -10,7 +10,7 @@
     "static/js/3.a3177b40.chunk.js": "/steamPage/static/js/3.a3177b40.chunk.js",
     "static/js/3.a3177b40.chunk.js.map": "/steamPage/static/js/3.a3177b40.chunk.js.map",
     "index.html": "/steamPage/index.html",
-    "static/css/main.3133eba0.chunk.css.map": "/steamPage/static/css/main.3133eba0.chunk.css.map",
+    "static/css/main.4c9b60e2.chunk.css.map": "/steamPage/static/css/main.4c9b60e2.chunk.css.map",
     "static/js/2.caec580d.chunk.js.LICENSE.txt": "/steamPage/static/js/2.caec580d.chunk.js.LICENSE.txt",
     "static/media/style.css": "/steamPage/static/media/backgroundUser.abcffd12.jpg",
     "static/media/facebook.cebbbbea.svg": "/steamPage/static/media/facebook.cebbbbea.svg",
@@ -24,7 +24,7 @@
   "entrypoints": [
     "static/js/runtime-main.b005b42f.js",
     "static/js/2.caec580d.chunk.js",
-    "static/css/main.3133eba0.chunk.css",
+    "static/css/main.4c9b60e2.chunk.css",
     "static/js/main.1bb8aa78.chunk.js"
   ]
 }
